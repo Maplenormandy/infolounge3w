@@ -33,15 +33,24 @@ int main(int argc, char **argv)
     
     prev_fn = signal (SIGTERM,terminate);
     if (prev_fn==SIG_IGN) signal (SIGTERM,SIG_IGN);
+	
+	int number_of_screens;
+    int i;
+    Bool result;
+    Window *root_windows;
+    Window window_returned;
+    int root_x, root_y;
+    int win_x, win_y;
+    unsigned int mask_return;
     
-    number_of_screens = XScreenCount(display);
+    number_of_screens = XScreenCount(displayMain);
     fprintf(stderr, "There are %d screens available in this X session\n", number_of_screens);
     root_windows = malloc(sizeof(Window) * number_of_screens);
     for (i = 0; i < number_of_screens; i++) {
-        root_windows[i] = XRootWindow(display, i);
+        root_windows[i] = XRootWindow(displayMain, i);
     }
     for (i = 0; i < number_of_screens; i++) {
-        result = XQueryPointer(display, root_windows[i], &window_returned,
+        result = XQueryPointer(displayMain, root_windows[i], &window_returned,
                 &window_returned, &root_x, &root_y, &win_x, &win_y,
                 &mask_return);
         if (result == True) {
