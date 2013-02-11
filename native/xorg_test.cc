@@ -1,5 +1,6 @@
 #include <cstdlib>
 #include <iostream>
+#include <csignal>
 
 #include <X11/Xlib.h>
 #include <X11/Xutil.h>
@@ -7,15 +8,6 @@
 using namespace std;
 
 Display *displayMain;
-
-void mouseMove(int x, int y)
-{
-	
-	
-	
-	
-	
-}
 
 void terminate(int param)
 {
