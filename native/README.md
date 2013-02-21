@@ -1,3 +1,3 @@
-Native Mouse Movement
-=====================
-Accepts websocket connections and uses them to control the Xorg server
+Native Commands and Stuff
+=========================
+Includes shell scripts and other platform-specific stuff not written in/for node
