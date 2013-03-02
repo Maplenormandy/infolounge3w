@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <errno.h>
 #include <signal.h>
+#include <time.h>
 #include <sys/types.h>
 #include <sys/inotify.h>
 
@@ -9,8 +10,8 @@
 #define EVENT_BUF_LEN     ( 1024 * ( EVENT_SIZE + 16 ) )
 
 int fd;
-const char* watch_path = "/home/tim/tmp";
-const char* put_path = "/home/tim/moved";
+const char* watch_path = "/home/tim/Dropbox/3W Slideshow";
+const char* put_path = "/home/tim/Pictures/3W Slideshow";
 char watch_file[255];
 char put_file[255];
 
@@ -42,7 +43,7 @@ int main( )
   /*adding the “/tmp” directory into watch list. Here, the suggestion is to validate the existence of the directory before adding into monitoring list.*/
   wd = inotify_add_watch( fd, watch_path, IN_CREATE );
   
-  if (wd != 0)
+  if (wd < 0)
   {
     perror( "inotify_add_watch" );
   }
@@ -63,10 +64,8 @@ int main( )
             if ( !(event->mask & IN_ISDIR) )
             {
               printf( "New file %s created.\n", event->name );
-              strcpy( watch_file, watch_path );
-              strcpy( put_file, put_path );
-              strcat( watch_file, event->name );
-              strcat( put_file, event->name );
+              sprintf( watch_file, "%s/%s", watch_path, event->name);
+              sprintf( put_file, "%s/%s", put_path, event->name );
               
               int ren = rename( watch_file, put_file );
               
