@@ -1,0 +1,96 @@
+@font-face { 
+	font-family: airplane; 
+	font-weight: normal;
+	src: url('airplane.ttf'); 
+} 
+
+body{
+	background-image: url('bg.png');
+	font-family: Roboto, arial;
+	position: absolute;
+	height: 100%;
+}
+
+h1{
+	font-family: Roboto, arial;
+	font-size: 40px;
+	color: #eeeeee;
+	margin-top: 6px;
+}
+
+h2{
+	font-family: Roboto, arial;
+	font-size: 20px;
+	color: #444444;
+}
+
+#content{
+	margin: 20px;
+	height: calc(100% - 40px);
+	height: -webkit-calc(100% - 40px);
+	overflow: hidden;
+}
+#header{
+	height: 100px;
+}
+#clock {
+	font-family: Roboto, arial;
+	font-size: 5em;
+	position: fixed;
+	top: 20px;
+	right: 30px;
+	color: #eeeeee;
+}
+
+.ampm {
+	color: #444444;
+}
+
+.panel{
+	width: calc(33% - 51px);
+	width: -webkit-calc(33% - 51px);
+	margin-right: 20px;
+	padding: 20px;
+}
+
+#panel1{
+	background-color: #78D6F0;
+	float: left;
+	overflow: hidden;
+	max-height: 100%;
+}
+
+#panel2{
+	background-color: #FF96C2;
+	float: left;
+}
+
+#panel3{
+	background-color: #78F090;
+	float: left;
+	margin: 0;
+}
+
+ul.tweet_list{
+
+}
+ul.tweet_list li{
+	margin-bottom: 20px;
+	clear: both;
+	min-height: 40px;
+	font-size: 1.1em;
+	border-bottom: solid 1px #9CE9FF;
+	padding-bottom: 20px;
+}
+ul.tweet_list li a{
+	font-weight: 500;
+	color: #000000;
+	text-decoration: none;
+}
+.tweet_avatar{
+	float: left;
+	margin-right: 10px;
+}
+.tweet_time{
+	display: none;
+}

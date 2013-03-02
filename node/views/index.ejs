@@ -2,10 +2,47 @@
 <html>
   <head>
     <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <!-- STYLESHEETS -->
+    <link rel='stylesheet' href='/stylesheets/reset.css' />
+    <link rel='stylesheet' href='/stylesheets/v2/style.css' />
+
+    <!-- FONTS -->
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,500,400italic,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+
+    <!-- JAVASCRIPT -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="http://tweet.seaofclouds.com/jquery.tweet.js" charset="utf-8"></script>
+  	
+<script type='text/javascript'>
+
+      jQuery(function($){
+        $("#panel1").tweet({
+          count: 5,
+          avatar_size: 48,
+          query: "#bash3w",
+          loading_text: "searching twitter...",
+          refresh_interval: 60
+        });
+      });
+</script>
+
   </head>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+  	<div id='content'>
+      <div id='header'>
+        <h1>infolounge</h1>
+        <h2>beta v2.1</h2>
+
+        <div id='clock'>
+          11:30 <span class='ampm'>PM</span>
+        </div>
+      </div>
+
+      <div id='panel1' class='panel'>
+        <div class='tweet_list'></div>
+      </div>
+      <div id='panel2' class='panel'></div>
+      <div id='panel3' class='panel'></div>
+    </div>
   </body>
 </html>

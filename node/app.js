@@ -29,9 +29,13 @@ app.configure('development', function(){
   app.use(express.errorHandler());
 });
 
-app.get('/', routes.index);
+
 app.get('/legacy', routes.legacy);
 app.get('/users', user.list);
+app.get('/', routes.index);
+
+app.get('/:num', routes.index);
+
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));
