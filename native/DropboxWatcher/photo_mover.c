@@ -9,10 +9,10 @@
 #define EVENT_BUF_LEN     ( 1024 * ( EVENT_SIZE + 16 ) )
 
 int fd;
-const *char watch_path = "/home/tim/tmp";
-const *char put_path = "/home/tim/moved";
-char[255] watch_file;
-char[255] put_file;
+const char* watch_path = "/home/tim/tmp";
+const char* put_path = "/home/tim/moved";
+char watch_file[255];
+char put_file[255];
 
 void sig_handler(int signum)
 {
