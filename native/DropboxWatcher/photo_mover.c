@@ -9,10 +9,14 @@
 #define EVENT_BUF_LEN     ( 1024 * ( EVENT_SIZE + 16 ) )
 
 int fd;
+const *char watch_path = "/home/tim/tmp";
+const *char put_path = "/home/tim/moved";
+char[255] watch_file;
+char[255] put_file;
 
 void sig_handler(int signum)
 {
-  printf("Recieved Ctrl-C Signal...");
+  printf("Recieved Ctrl-C Signal...\n");
   /*closing the INOTIFY instance*/
   close( fd );
   exit(EXIT_SUCCESS);
@@ -36,42 +40,54 @@ int main( )
   }
 
   /*adding the “/tmp” directory into watch list. Here, the suggestion is to validate the existence of the directory before adding into monitoring list.*/
-  wd = inotify_add_watch( fd, "/home/tim/tmp", IN_CREATE | IN_DELETE );
+  wd = inotify_add_watch( fd, watch_path, IN_CREATE );
+  
+  if (wd != 0)
+  {
+    perror( "inotify_add_watch" );
+  }
+  else
+  {
 
-  /*read to determine the event change happens on “/tmp” directory. Actually this read blocks until the change event occurs*/ 
-
-  length = read( fd, buffer, EVENT_BUF_LEN ); 
-
-  /*checking for error*/
-  if ( length < 0 ) {
-    perror( "read" );
-  }  
-
-  /*actually read return the list of change events happens. Here, read the change event one by one and process it accordingly.*/
-  while ( i < length ) {     struct inotify_event *event = ( struct inotify_event * ) &buffer[ i ];     if ( event->len ) {
-      if ( event->mask & IN_CREATE ) {
-        if ( event->mask & IN_ISDIR ) {
-          printf( "New directory %s created.\n", event->name );
-        }
-        else {
-          printf( "New file %s created.\n", event->name );
-        }
-      }
-      else if ( event->mask & IN_DELETE ) {
-        if ( event->mask & IN_ISDIR ) {
-          printf( "Directory %s deleted.\n", event->name );
-        }
-        else {
-          printf( "File %s deleted.\n", event->name );
+    /*read to determine the event change happens on “/tmp” directory. Actually this read blocks until the change event occurs*/ 
+    while ((length = read( fd, buffer, EVENT_BUF_LEN )) >= 0)
+    {
+      /*actually read return the list of change events happens. Here, read the change event one by one and process it accordingly.*/
+      while ( i < length )
+      {
+        struct inotify_event *event = ( struct inotify_event * ) &buffer[ i ];
+        if ( event->len )
+        {
+          if ( event->mask & IN_CREATE )
+          {
+            if ( !(event->mask & IN_ISDIR) )
+            {
+              printf( "New file %s created.\n", event->name );
+              strcpy( watch_file, watch_path );
+              strcpy( put_file, put_path );
+              strcat( watch_file, event->name );
+              strcat( put_file, event->name );
+              
+              int ren = rename( watch_file, put_file );
+              
+              if (ren != 0)
+              {
+                perror( "rename" );
+              }
+            }
+          }
+          i += EVENT_SIZE + event->len;
         }
       }
     }
-    i += EVENT_SIZE + event->len;
+    
+    perror( "read" );
   }
+  
   /*removing the “/tmp” directory from the watch list.*/
-   inotify_rm_watch( fd, wd );
+  inotify_rm_watch( fd, wd );
 
   /*closing the INOTIFY instance*/
-   close( fd );
+  close( fd );
 
 }
