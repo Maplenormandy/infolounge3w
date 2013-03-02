@@ -1,11 +1,23 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <errno.h>
+#include <signal.h>
 #include <sys/types.h>
 #include <sys/inotify.h>
 
 #define EVENT_SIZE  ( sizeof (struct inotify_event) )
 #define EVENT_BUF_LEN     ( 1024 * ( EVENT_SIZE + 16 ) )
+
+void sig_handler(int signum)
+{
+  if (signum == SIGINT)
+  {
+    printf("Recieved Ctrl-C Signal...");
+    /*closing the INOTIFY instance*/
+    close( fd );
+    exit(EXIT_SUCCESS);
+  }
+}
 
 int main( )
 {
@@ -23,7 +35,7 @@ int main( )
   }
 
   /*adding the “/tmp” directory into watch list. Here, the suggestion is to validate the existence of the directory before adding into monitoring list.*/
-  wd = inotify_add_watch( fd, "/home/tmp", IN_CREATE | IN_DELETE );
+  wd = inotify_add_watch( fd, "/home/tim/tmp", IN_CREATE | IN_DELETE );
 
   /*read to determine the event change happens on “/tmp” directory. Actually this read blocks until the change event occurs*/ 
 
