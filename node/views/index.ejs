@@ -14,16 +14,23 @@
     <script src="http://tweet.seaofclouds.com/jquery.tweet.js" charset="utf-8"></script>
   	
 <script type='text/javascript'>
+    $(document).ready(function(){
 
-      jQuery(function($){
-        $("#panel1").tweet({
-          count: 5,
+      $(function($){
+        $("#tweet_feed").tweet({
+          count: 7,
           avatar_size: 48,
           query: "#bash3w",
           loading_text: "searching twitter...",
           refresh_interval: 60
         });
       });
+
+      $("#panel1").delay(500).slideDown("slow");
+      $("#panel2").delay(600).slideDown("slow");
+      $("#panel3").delay(900).slideDown("slow");
+
+    });
 </script>
 
   </head>
@@ -39,10 +46,24 @@
       </div>
 
       <div id='panel1' class='panel'>
-        <div class='tweet_list'></div>
+        <div class='module'>
+          <h3>Twitter</h3>
+          <div id='tweet_feed'>
+          </div>
+        </div>
       </div>
-      <div id='panel2' class='panel'></div>
-      <div id='panel3' class='panel'></div>
+      <div id='panel2' class='panel'>
+        <div class='module'>
+        <h3>TechShuttle</h3>
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </div>
+      </div>
+      <div id='panel3' class='panel'>
+        <div class='module'>
+        <h3>Weather</h3>
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </div>
+      </div>
     </div>
   </body>
 </html>

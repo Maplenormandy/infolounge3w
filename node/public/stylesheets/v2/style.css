@@ -15,7 +15,7 @@ h1{
 	font-family: Roboto, arial;
 	font-size: 40px;
 	color: #eeeeee;
-	margin-top: 6px;
+	margin-top: 20px;
 }
 
 h2{
@@ -23,7 +23,12 @@ h2{
 	font-size: 20px;
 	color: #444444;
 }
-
+h3{
+	color: #ffffff;
+	font-size: 2em;
+	margin-bottom: 14px;
+	opacity: 0.6;
+}
 #content{
 	margin: 20px;
 	height: calc(100% - 40px);
@@ -31,7 +36,7 @@ h2{
 	overflow: hidden;
 }
 #header{
-	height: 100px;
+	height: 90px;
 }
 #clock {
 	font-family: Roboto, arial;
@@ -51,6 +56,7 @@ h2{
 	width: -webkit-calc(33% - 51px);
 	margin-right: 20px;
 	padding: 20px;
+	display: none;
 }
 
 #panel1{
