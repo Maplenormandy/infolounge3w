@@ -8,21 +8,22 @@
 #define EVENT_SIZE  ( sizeof (struct inotify_event) )
 #define EVENT_BUF_LEN     ( 1024 * ( EVENT_SIZE + 16 ) )
 
+int fd;
+
 void sig_handler(int signum)
 {
-  if (signum == SIGINT)
-  {
-    printf("Recieved Ctrl-C Signal...");
-    /*closing the INOTIFY instance*/
-    close( fd );
-    exit(EXIT_SUCCESS);
-  }
+  printf("Recieved Ctrl-C Signal...");
+  /*closing the INOTIFY instance*/
+  close( fd );
+  exit(EXIT_SUCCESS);
 }
 
 int main( )
 {
+  signal(SIGINT, sig_handler);
+  
   int length, i = 0;
-  int fd;
+  
   int wd;
   char buffer[EVENT_BUF_LEN];
 
