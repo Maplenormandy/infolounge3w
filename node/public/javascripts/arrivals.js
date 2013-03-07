@@ -1,4 +1,3 @@
-
 var stopId = 51;
 var stopId1 = 13782;
 var stopId2 = 75;
@@ -102,7 +101,7 @@ function handlePredictions(data) {
     predictions = data.items;
 
     if (predictions.length == 0) {
-	$("#predictions").html('<li><div class="none">No shuttles</div></li>');
+	$("#predictions").html('<li><div class="none">Try walking</div></li>');
 	return;
     }
 
@@ -115,10 +114,13 @@ function handlePredictions(data) {
 		$(elem).find('.route').text('CT1 - Limited');
 	}
 	else if (routeNames[prediction.route_id] == 'Saferide Cambridge West') {
-		$(elem).find('.route').text('Cambrdge West');
+		$(elem).find('.route').text('Cambridge West');
 	}
 	else if (routeNames[prediction.route_id] == 'Saferide Cambridge All') {
 		$(elem).find('.route').text('Cambridge All');
+	}
+	else if (routeNames[prediction.route_id] == 'Trader Joe"s - Whole Foods') {
+		$(elem).find('.route').text('Grocery Shuttle');
 	}
 	else {
 	$(elem).find('.route').text(routeNames[prediction.route_id]);
@@ -128,22 +130,25 @@ function handlePredictions(data) {
 		$(elem).find('.run').text('Dudley Square');
 	}
 	else if (runNames[prediction.run_id] == 'West Campus') {
-		$(elem).find('.run').text('to Kendall Sq');
+		$(elem).find('.run').text('toward Kendall Sq');
 	}
 	else if (runNames[prediction.run_id] == 'from Campus') {
-		$(elem).find('.run').text('to Central Sq');
+		$(elem).find('.run').text('toward Central Sq');
 	}
 	else if (runNames[prediction.run_id] == 'to Campus') {
-		$(elem).find('.run').text('to Central Sq');
+		$(elem).find('.run').text('toward Central Sq');
 	}
 	else if (runNames[prediction.run_id] == 'B.U. Medical Center (Limited Stops)') {
-		$(elem).find('.run').text('BU Medical Center');
+		$(elem).find('.run').text('toward BU Medical Ctr');
 	}
 	else if (runNames[prediction.run_id] == 'Harvard Station via Mass. Ave.') {
-		$(elem).find('.run').text('Harvard Square');
+		$(elem).find('.run').text('toward Harvard Sq');
 	}
 	else if (runNames[prediction.run_id] == 'Central Square (Limited Stops)') {
-		$(elem).find('.run').text('Central Square');
+		$(elem).find('.run').text('toward Central Sq');
+	}
+	else if (runNames[prediction.run_id] == 'To Trader Joe"s') {
+		$(elem).find('.run').text('toward Trader Joe"s/Central Sq');
 	}
 	else if (runNames[prediction.run_id] == 'Inbound to North Point & Van Ness') {
 		$(elem).find('.run').text('Pretend-destination');
