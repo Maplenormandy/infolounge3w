@@ -235,13 +235,13 @@ h1
   left: 12px;
 /*  height: 54px; */
 /*  width: 154px; */
-  height: 7%;
+/* height: 7%; */
   width: 25%;
 /*  padding: 9px 0px 13px 0px; */
   text-align: center;
   border-bottom: 0px solid;
   color: #ffffff;
-  font-size: 120px;
+  font-size: 140px;
   font-weight: bold;
   overflow: hidden;
 }
@@ -274,13 +274,13 @@ h1
   left: 19.2%;
   right: 46%;
 /*  height: 54px; */
-  height: 7%;
+/* height: 7%; */
   padding: 20px 0px 4px 0px;
-  text-align: center;
+  text-align: left;
   border-bottom: 0px solid;
 /* background: #ff0000; */
   color: #ffffff;
-  font-size: 40px;
+  font-size: 56px;
   font-weight: bold;
   overflow: hidden;
 }
