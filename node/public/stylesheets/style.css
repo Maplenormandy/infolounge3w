@@ -231,12 +231,12 @@ h1
 {
   position: fixed;
 /*  bottom: 50px; */
-  bottom: 7%;
+  bottom: 24px;
   left: 12px;
 /*  height: 54px; */
 /*  width: 154px; */
 /* height: 7%; */
-  width: 25%;
+/* width: 25%; */
 /*  padding: 9px 0px 13px 0px; */
   text-align: center;
   border-bottom: 0px solid;
@@ -270,12 +270,12 @@ h1
 {
   position: fixed;
 /*  bottom: 50px; */
-  bottom: 7%;
-  left: 19.2%;
+  bottom: 24px;
+  left: 28%;
   right: 46%;
 /*  height: 54px; */
 /* height: 7%; */
-  padding: 20px 0px 4px 0px;
+/*  padding: 20px 0px 4px 0px; */
   text-align: left;
   border-bottom: 0px solid;
 /* background: #ff0000; */
