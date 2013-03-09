@@ -144,7 +144,7 @@ h1
 	width:43.00%;
 	top:6.1%;
 	right:12px;
-	height:92%;
+	height:93%;
 	overflow:hidden;"
 }
 
@@ -236,12 +236,12 @@ h1
 /*  height: 54px; */
 /*  width: 154px; */
   height: 7%;
-  width: 16.2%;
+  width: 25%;
 /*  padding: 9px 0px 13px 0px; */
   text-align: center;
   border-bottom: 0px solid;
   color: #ffffff;
-  font-size: 85px;
+  font-size: 120px;
   font-weight: bold;
   overflow: hidden;
 }
@@ -257,12 +257,12 @@ h1
 /*  height: 54px; */
   height: 7%;
   padding: 9px 0px 15px 0px;
-  text-align: center;
+  text-align: left;
   border-bottom: 0px solid;
   background: #36CF59;
   color: #000000;
   margin: 0;
-  font-size: 30px;
+  font-size: 40px;
   overflow: hidden;
 }
 
