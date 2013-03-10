@@ -119,7 +119,7 @@ function handlePredictions(data) {
 	else if (routeNames[prediction.route_id] == 'Saferide Cambridge All') {
 		$(elem).find('.route').text('Cambridge All');
 	}
-	else if (routeNames[prediction.route_id] == 'Trader Joe"s - Whole Foods') {
+	else if (routeNames[prediction.route_id] == 'Trader Joe\'s - Whole Foods') {
 		$(elem).find('.route').text('Grocery Shuttle');
 	}
 	else {
@@ -147,8 +147,8 @@ function handlePredictions(data) {
 	else if (runNames[prediction.run_id] == 'Central Square (Limited Stops)') {
 		$(elem).find('.run').text('toward Central Sq');
 	}
-	else if (runNames[prediction.run_id] == 'To Trader Joe"s') {
-		$(elem).find('.run').text('toward Trader Joe"s/Central Sq');
+	else if (runNames[prediction.run_id] == 'To Trader Joe\'s') {
+		$(elem).find('.run').text('toward Trader Joe\'s/Central Sq');
 	}
 	else if (runNames[prediction.run_id] == 'Inbound to North Point & Van Ness') {
 		$(elem).find('.run').text('Pretend-destination');
