@@ -148,7 +148,7 @@ function handlePredictions(data) {
 		$(elem).find('.run').text('toward Central Sq');
 	}
 	else if (runNames[prediction.run_id] == 'To Trader Joe\'s') {
-		$(elem).find('.run').text('Trader Joe\'s/Central Sq');
+		$(elem).find('.run').text('Trader Joe\'s/Central');
 	}
 	else if (runNames[prediction.run_id] == 'Inbound to North Point & Van Ness') {
 		$(elem).find('.run').text('Pretend-destination');
